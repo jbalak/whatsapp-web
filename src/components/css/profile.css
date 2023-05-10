@@ -1,0 +1,7 @@
+.profile {
+    height: 40px;
+    max-width: 40px;
+    margin-right: 10px;
+    border: 1px solid red;
+    border-radius: 200px;
+}

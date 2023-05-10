@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import ConversationList from "./pages/conversations/conversationList";
+import ConversationNode from "./pages/conversations/conversationNode";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MessageList from "./pages/messages/messageList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div className="App">
+    //   <ConversationList />
+    // </div>
+
+    <BrowserRouter>
+      <div className="App">
+        {/* <Navbar /> */}
+
+        <Routes>
+          <Route path="/" element={<ConversationList />} />
+          <Route path="conversation" element={<MessageList />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

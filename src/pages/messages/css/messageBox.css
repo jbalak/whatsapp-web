@@ -1,0 +1,79 @@
+.message-nav {
+    /* position: absolute; */
+    top: 0;
+    padding-left: 30px;
+    max-height: 65px;
+    display: flex;
+    background-color: lightslategray;
+
+}
+
+.user-name {
+    /* text-align: center; */
+    padding-top: 16px;
+    color: white;
+}
+
+.bubble-container {
+    border: 1px solid red;
+    max-width: 800px;
+    /* max-width: aut; */
+    /* margin-left: 25%; */
+}
+
+.bubble {
+    max-width: 700px;
+    min-width: 1px;
+    width: auto;
+    margin: 30px auto;
+    background-color: darkgray;
+    padding: 20px;
+    text-align: left;
+    font-weight: 900;
+    color: #fff;
+    font-family: arial;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid black;
+
+}
+
+.bubble-right {
+    margin-left: 450px;
+    margin-right: 10px;
+}
+
+
+.bubble-left {
+    margin-right: 430px;
+    margin-left: 10px;
+
+}
+
+
+.right:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #00bfb6;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #00bfb6;
+    border-bottom: 10px solid transparent;
+    right: -10px;
+    top: 0px;
+
+}
+
+.left:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-right: 10px solid #00bfb6;
+    border-left: 10px solid transparent;
+    border-top: 10px solid #00bfb6;
+    border-bottom: 10px solid transparent;
+    left: -10px;
+    top: 0px;
+}

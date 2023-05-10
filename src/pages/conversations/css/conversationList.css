@@ -1,0 +1,23 @@
+.container {
+    max-width: 800px;
+    border: 10px solid pink;
+    margin-left: 300px;
+    align-items: center;
+}
+
+.node-search {
+    margin-bottom: 5px;
+    margin-left: 10rem;
+    width: 480px;
+    height: 30px;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.conversation-loader {
+    margin-left: 350px;
+    margin-top: 150px;
+}
