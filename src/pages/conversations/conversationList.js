@@ -7,6 +7,7 @@ import json from "../../json/conversations.json";
 import "./css/conversationList.css";
 import Loader from "../../components/loader";
 const ConversationList = () => {
+  let ctr = 0;
   const [conversations, setConversations] = useState([]);
 
   useEffect(() => {
@@ -15,7 +16,6 @@ const ConversationList = () => {
       .then((res) => {
         setConversations(res.data.data);
       });
-    // setConversations(json.data);
   }, []);
 
   return (

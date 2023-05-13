@@ -1,21 +1,17 @@
-import ConversationList from "./pages/conversations/conversationList";
-import ConversationNode from "./pages/conversations/conversationNode";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import ConversationList from "./pages/conversations/conversationList";
 import MessageList from "./pages/messages/messageList";
+import Status from "./pages/status/status";
 
 function App() {
   return (
-    // <div className="App">
-    //   <ConversationList />
-    // </div>
-
     <BrowserRouter>
       <div className="App">
-        {/* <Navbar /> */}
-
         <Routes>
-          <Route path="/" element={<ConversationList />} />
+          <Route exact path="/" element={<ConversationList />} />
           <Route path="conversation" element={<MessageList />} />
+          <Route path="status" element={<Status />} />
         </Routes>
       </div>
     </BrowserRouter>

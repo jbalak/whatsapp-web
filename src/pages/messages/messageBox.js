@@ -1,5 +1,4 @@
 import "./css/messageBox.css";
-const classes = ["right", "left"];
 const MessageBox = ({ message, index }) => {
   let me = "63cbba1fbed83250e51dcc59";
 

@@ -17,34 +17,34 @@ const MessageList = () => {
   const conversationId = location.state.conversationId;
   const conversationTitle = location.state.title;
   let ctr = 0;
+
   useEffect(() => {
     let url = `https://dd-chat-0.onrender.com/api/conversations/${conversationId}/messages?nextCurser=${nextCurser}&limit=7`;
-    axios.get(url).then((res) => {
-      console.log({ ctr: ++ctr });
-      let messages = res.data.data.messages;
-      messages = messages.reverse();
-      // setScrollToBottom(true);
-      setMessages((prevMsg) => [...messages, ...prevMsg]);
-      // setMessages(messages);
-    });
+    axios
+      .get(url)
+      .then((res) => {
+        console.log({ ctr: ++ctr });
+        let messages = res.data.data.messages;
+        messages = messages.reverse();
+        setScrollToBottom(true);
+        setMessages((prevMsg) => [...messages, ...prevMsg]);
+      })
+      .catch(console.log);
   }, [nextCurser]);
 
-  // useEffect(() => {
-  //   bottomDivRef.current.scrollIntoView();
-  //   // setMessages([]);
-  // }, [scrollToBottom]);
+  useEffect(() => {
+    bottomDivRef.current.scrollIntoView();
+  }, [scrollToBottom]);
 
-  // const handleScroll = () => {
-  //   let scrollTop = document.documentElement.scrollTop;
-  //   if (scrollTop <= 0) {
-  //     setNextCurser("63f5c6a1388472775c0626a2");
-  //   }
-  // };
-  // useState(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  // }, []);
-
-  console.log({ myMessages: messages, nextCurser });
+  const handleScroll = () => {
+    let scrollTop = document.documentElement.scrollTop;
+    if (scrollTop <= 0) {
+      setNextCurser(messages[0]._id);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="message-container">
