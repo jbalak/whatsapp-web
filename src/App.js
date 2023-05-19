@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import ConversationList from "./pages/conversations/conversationList";
 import MessageList from "./pages/messages/messageList";
 import Status from "./pages/status/status";

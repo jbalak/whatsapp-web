@@ -9,7 +9,6 @@ import "./css/messageList.css";
 import useDBMessages from "./useDBMessages";
 
 const MessageList = () => {
-  // const [messages, setMessages] = useState([]);
   const [nextCurser, setNextCurser] = useState("");
   const [scrollToBottom, setScrollToBottom] = useState(false);
   const bottomDivRef = useRef();
@@ -24,11 +23,13 @@ const MessageList = () => {
   });
 
   useEffect(() => {
-    if (messages.length) setScrollToBottom(true);
+    if (messages.length) {
+      setScrollToBottom(true);
+    }
   }, [messages]);
 
   useEffect(() => {
-    bottomDivRef.current.scrollIntoView();
+    bottomDivRef.current.scrollIntoView({ behavior: "smooth" });
   }, [scrollToBottom]);
 
   const handleScroll = () => {
@@ -40,7 +41,6 @@ const MessageList = () => {
   };
 
   window.addEventListener("scroll", handleScroll);
-  useEffect(() => {}, []);
 
   return (
     <div className="message-container">
@@ -50,21 +50,25 @@ const MessageList = () => {
         </div>
         <div className="user-name">{conversationTitle}</div>
       </div>
-      <div>
+      <div className="message-list">
         {loading && (
           <div className="message-loader">
             <Loader />
           </div>
         )}
-      </div>
-      <div>
+
         {messages.length > 0 &&
           messages.map((message, index) => (
-            <MessageBox key={index} message={message} />
+            <MessageBox
+              key={index}
+              message={message}
+              scrollTo={index == 6 ? true : false}
+            />
           ))}
-      </div>
-      <div ref={bottomDivRef} className="message-input">
-        <input type="text" placeholder="add new message..." />
+
+        <div ref={bottomDivRef} className="message-input">
+          <input type="text" placeholder="add new message..." />
+        </div>
       </div>
     </div>
   );
